@@ -1,0 +1,35 @@
+.home__swiper {
+    margin: initial;
+}
+
+.home__container {
+    padding-top: 2rem;
+    row-gap: 2.5rem;
+}
+
+.home__data {
+    text-align: center;
+}
+
+.home__title {
+    font-size: var(--biggest-font-size);
+    margin-bottom: 1rem;
+}
+
+.home__description {
+    margin-bottom: 2rem;
+}
+
+.home__images {
+    display: grid;
+}
+
+.home__article,
+.home__img {
+    width: 220px;
+    transition: scale 0.4s;
+}
+
+.home__article {
+    scale: 0.8;
+}
