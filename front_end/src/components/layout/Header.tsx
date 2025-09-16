@@ -1,4 +1,7 @@
-import "../../assets/styles/Header.css"
+import { Link } from "react-router-dom";
+
+import "../../assets/styles/Header.css";
+import Auth from "../../pages/Auth";
 
 const Header = () => {
     return (
@@ -39,7 +42,7 @@ const Header = () => {
 
                 <div className="nav__actions">
                     {/* Login Button */}
-                    <i className="ri-user-line login-button" id="login-button"></i>
+                    <Link to="/auth"><i className="ri-user-line login-button" id="login-button"></i></Link>
 
                     {/* Theme Button */}
                     <i className="ri-moon-line theme-button" id="theme-button"></i>
