@@ -1,11 +1,26 @@
+import { useState, useEffect } from "react";
+
 import { Link } from "react-router-dom";
 
 import "../../assets/styles/Header.css";
-import Auth from "../../pages/Auth";
 
 const Header = () => {
+    const [isShadow, setIsShadow] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            setIsShadow(window.scrollY >= 50);
+        };
+
+        window.addEventListener("scroll", handleScroll);
+
+        return () => {
+            window.removeEventListener("scroll", handleScroll)
+        };
+    }, []);
+
     return (
-        <header className="header" id="header">
+        <header className={isShadow ? "header shadow-header" : "header"} id="header">
             <nav className="nav container">
                 <a href="/" className="nav__logo">
                     <i className="ri-english-input"></i> English

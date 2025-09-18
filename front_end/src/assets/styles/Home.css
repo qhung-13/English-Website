@@ -24,12 +24,54 @@
     display: grid;
 }
 
-.home__article,
 .home__img {
     width: 220px;
+}
+
+.home__article,
+.home__img {
     transition: scale 0.4s;
 }
 
 .home__article {
+    width: auto;
     scale: 0.8;
+}
+
+.swiper-slide-active,
+.swiper-slide-duplication-active {
+    scale: 1;
+}
+
+/* Home Service */
+.service__container {
+    row-gap: 3;
+}
+
+.service__card {
+    text-align: center;
+    background-color: var(--second-color);
+    border-radius: 8px;
+    transition: box-shadow 0.5s ;
+}
+
+.service__card i {
+    display: block;
+    font-size: 3rem;
+    color: var(--first-color);
+    margin-bottom: 1rem;
+    padding-top: 1rem;
+}
+
+.service__title {
+    font-size: var(--h3-font-size);
+    margin-bottom: 0.5rem;
+}
+
+.service__description {
+    padding-bottom: 1rem;
+}
+
+.service__card:hover {
+    box-shadow: 0 4px 32px hsla(230, 72%, 32%, 0.4);
 }

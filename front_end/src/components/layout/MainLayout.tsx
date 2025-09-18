@@ -1,4 +1,5 @@
-import Header from "./Header"
+import Header from "./Header";
+import Footer from "./Footer";
 
 type LayoutProps = {
     children: React.ReactNode;
@@ -9,6 +10,7 @@ const Layout = ({ children }: LayoutProps) => {
         <>
             <Header /> {/* Always appear*/}
             <main>{children}</main> {/* Change depending on each page */}
+            <Footer />
         </>
     );
 }

@@ -65,3 +65,7 @@
 .nav__actions i:hover {
     color: var(--first-color);
 }
+
+.shadow-header {
+    box-shadow: 0 2px 16px hsla(0, 0%, 0%, 0.1);
+}
