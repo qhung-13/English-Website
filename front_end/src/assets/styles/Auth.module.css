@@ -1,18 +1,12 @@
-.auth-container * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-.auth-container body {
+.auth-wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    /* background: linear-gradient(90deg, #e2e2e2, #c9d6ff); */
+    background: linear-gradient(90deg, #e2e2e2, #c9d6ff); 
 }
 
-.auth-container .container-auth {
+.container-auth {
     position: relative;
     width: 850px;
     height: 550px;
@@ -23,7 +17,7 @@
     margin: 20px;
 }
 
-.auth-container .form-box {
+.form-box {
     position: absolute;
     right: 0;
     width: 50%;
@@ -38,33 +32,33 @@
     transition: 1.2s ease-in-out 1.2s, visibility 0s 1s;
 }
 
-.auth-container .container-auth.active .form-box {
+.container-auth.active .form-box {
     right: 50%;
 }
 
-.auth-container .form-box.register {
+.form-box.register {
     visibility: hidden;
 }
 
-.auth-container .container-auth.active .form-box.register {
+.container-auth.active .form-box.register {
     visibility: visible;
 }
 
-.auth-container form {
+form {
     width: 100%;
 }
 
-.auth-container .container-auth h1 {
+.container-auth h1 {
     font-size: 36px;
     margin: -10px 0;
 }
 
-.auth-container .input-box {
+.input-box {
     position: relative;
     margin: 30px 0;
 }
 
-.auth-container .input-box input {
+.input-box input {
     width: 100%;
     padding: 13px 50px 13px 20px;
     background: #eee;
@@ -74,12 +68,12 @@
     font-weight: 500;
 }
 
-.auth-container .input-box input::placeholder {
+.input-box input::placeholder {
     color: #888;
     font-weight: 400;
 }
 
-.auth-container .input-box i {
+.input-box i {
     position: absolute;
     right: 20px;
     top: 50%;
@@ -88,35 +82,43 @@
     color: #888;
 }
 
-.auth-container .forgot-link {
+.forgot-link {
     margin: -15px 0 15px;
 }
 
-.auth-container .forgot-link a {
+.forgot-link a {
     font-size: 14.5px;
     color: #333;
 }
 
-.auth-container .btn {
+.btn {
     width: 100%;
+    height: 48px;
+    background: #7494ec;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     cursor: pointer;
     font-size: 16px;
+    color: white;
     font-weight: 600;
+    transition: 0.5s;
 }
 
-.auth-container .container-auth p {
+.btn:hover {
+    box-shadow: 0 4px 32px hsla(230, 72%, 32%, 0.4);
+}
+
+.container-auth p {
     font-size: 15.4px;
     margin: 15px 0;
 }
 
-.auth-container .social-icons {
+.social-icons {
     display: flex;
     justify-content: center;
 }
 
-.auth-container .social-icons a {
+.social-icons a {
     display: inline-block;
     padding: 10px;
     border: 2px solid #ccc;
@@ -124,15 +126,22 @@
     font-size: 24px;
     color: #333;
     margin: 0 8px;
+    transition: 0.5s;
 }
 
-.auth-container .toggle-box {
+.social-icons a:hover {
+    background: #7494ec;
+    color: white;
+    box-shadow: 0 4px 32px hsla(230, 72%, 32%, 0.4);
+}
+
+.toggle-box {
     position: absolute;
     width: 100%;
     height: 100%;
 }
 
-.auth-container .toggle-box::before {
+.toggle-box::before {
     content:  '';
     position: absolute;
     left: -250%;
@@ -144,11 +153,11 @@
     transition: 1.2s ease-in-out;
 }
 
-.auth-container .container-auth.active .toggle-box::before {
+.container-auth.active .toggle-box::before {
     left: 50%;
 }
 
-.auth-container .toggle-panel {
+.toggle-panel {
     position: absolute;
     width: 50%;
     height: 100%;
@@ -161,36 +170,36 @@
     z-index: 2;
 }
 
-.auth-container .toggle-panel.toggle-left {
+.toggle-panel.toggle-left {
     left: 0;
     transition-delay: 0.6s;
 }
 
-.auth-container .container-auth.active .toggle-panel.toggle-left{
+.container-auth.active .toggle-panel.toggle-left{
     left: -50%;
     transition-delay: 1.2s;
 }
 
-.auth-container .toggle-panel.toggle-right {
+.toggle-panel.toggle-right {
     right: -50%;
     transition-delay: 0.6s;
 }
 
-.auth-container .container-auth.active .toggle-panel.toggle-right {
+.container-auth.active .toggle-panel.toggle-right {
     right: 0;
     transition-delay: 1.2s;
 }
 
-.auth-container .toggle-panel h1 {
+.toggle-panel h1 {
     font-weight: 700;
     color: #fff
 }
 
-.auth-container .toggle-panel p {
+.toggle-panel p {
     margin-bottom: 20px;
 }
 
-.auth-container .toggle-panel .button {
+.toggle-panel .btn {
     width: 160px;
     height: 46px;
     background: transparent;
@@ -200,7 +209,7 @@
 
 @media screen and (max-width: 650px){
     .container-auth {
-        height: calc(100vh - 40px);
+        height: calc(100vh - 200px);
     }
 
     .form-box {
