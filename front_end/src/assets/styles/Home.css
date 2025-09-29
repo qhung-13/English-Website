@@ -26,6 +26,7 @@
 
 .home__img {
     width: 220px;
+    margin: 0 auto;
 }
 
 .home__article,
@@ -44,6 +45,9 @@
 }
 
 /* Home Service */
+.service {
+    padding-top: 25px;
+}
 .service__container {
     row-gap: 3;
 }
