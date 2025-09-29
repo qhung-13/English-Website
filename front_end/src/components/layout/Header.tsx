@@ -35,7 +35,7 @@ const Header = () => {
                             </a>
                         </li>
                          <li className="nav__item">
-                            <a href="/" className="nav__link">
+                            <a href="/vocabulary" className="nav__link">
                                 <i className="ri-book-open-line"></i>
                                 <span>Vocabulary</span>
                             </a>
