@@ -15,6 +15,10 @@ const WordRow: React.FC<WordRowProps> = ({ data })=> {
         speechSynthesis.speak(utterance);
     }
 
+    const handleEdit = () => {
+        
+    }
+
     return (
         <tr>
             <td>{ data.word }</td>

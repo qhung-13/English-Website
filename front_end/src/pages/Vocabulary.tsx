@@ -1,13 +1,15 @@
 import "../assets/styles/Vocabulary.css";
 import WordRow from "../components/common/WordRow";
 import AddWork from "../components/common/AddWork";
+import SearchWord from "../components/common/SearchWord";
 
-import { use, useState } from "react";
+import { useState } from "react";
 import { vocabulary as initialVocabulary} from "../assets/data/VocabularyData";
 
 const Vocabulary = () => {
     const [flipped, setFlipped] = useState(false);
-    const [showAddWord, setShowAddWord] = useState(false); 
+    const [showAddWord, setShowAddWord] = useState(false);
+    const [search, setSearch] = useState('');
 
     const [wordList, setWordList] = useState(initialVocabulary);
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -56,6 +58,10 @@ const Vocabulary = () => {
         setFinished(false);
         setFlipped(false);
     }
+
+    const filteredWords = wordList.filter(item => 
+        item.word.toLowerCase().includes(search.toLowerCase())
+    );
 
     return (
         <section className="vocabulary section">
@@ -142,11 +148,10 @@ const Vocabulary = () => {
                         onSubmit={(e) => e.preventDefault()}
                     >
                         <div className="search-word">
-                            <input 
-                                type="text"
-                                placeholder="Search vocabulary" 
+                           <SearchWord 
+                                search={search}
+                                setSearch={setSearch}
                             />
-                            <i className="ri-search-line"></i>
                         </div>
                         <button 
                             type="button"
@@ -164,12 +169,23 @@ const Vocabulary = () => {
                                 </tr>
                             </thead>
                             <tbody>
-                                {initialVocabulary.map((item) => (
-                                    <WordRow 
-                                        key={item.id}
-                                        data={item}
-                                    />
-                                ))}
+                                {filteredWords.length > 0 ? (
+                                    filteredWords.map(item => (
+                                        <WordRow
+                                            key={item.id}
+                                            data={item}
+                                        />
+                                    ))
+                                ): (
+                                    <tr>
+                                        <td 
+                                            colSpan={3}
+                                            style={{ textAlign: "center", padding: "1rem"}}
+                                        >
+                                            No word found
+                                        </td>
+                                    </tr>
+                                )}
                             </tbody>
                         </table>
                     </div>
