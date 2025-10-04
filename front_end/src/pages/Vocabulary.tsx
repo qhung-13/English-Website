@@ -1,10 +1,13 @@
 import "../assets/styles/Vocabulary.css";
+import WordRow from "../components/common/WordRow";
+import AddWork from "../components/common/AddWork";
 
-import { useState } from "react";
+import { use, useState } from "react";
 import { vocabulary as initialVocabulary} from "../assets/data/VocabularyData";
 
 const Vocabulary = () => {
     const [flipped, setFlipped] = useState(false);
+    const [showAddWord, setShowAddWord] = useState(false); 
 
     const [wordList, setWordList] = useState(initialVocabulary);
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -132,7 +135,59 @@ const Vocabulary = () => {
                         </div>
                     </div>
                 }
+                <div className="space-line"></div>
+                <div className="world-list-container">
+                    <form 
+                        action=""
+                        onSubmit={(e) => e.preventDefault()}
+                    >
+                        <div className="search-word">
+                            <input 
+                                type="text"
+                                placeholder="Search vocabulary" 
+                            />
+                            <i className="ri-search-line"></i>
+                        </div>
+                        <button 
+                            type="button"
+                            className="add-word"
+                            onClick={() => setShowAddWord(true)}
+                        >Add Word</button>
+                    </form>
+                    <div className="word-list">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <td>Word</td>
+                                    <td>Definition</td>
+                                    <td>Action</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {initialVocabulary.map((item) => (
+                                    <WordRow 
+                                        key={item.id}
+                                        data={item}
+                                    />
+                                ))}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
+            {showAddWord && (
+                <div 
+                    className="popup-overlay"
+                    onClick={() => setShowAddWord(false)}    
+                >
+                    <div
+                        className="popup-content"
+                        onClick={(e) => e.stopPropagation()}
+                    >
+                            <AddWork onClose={() => setShowAddWord(false)} />
+                        </div>
+                </div>
+            )}
         </section>
     );
 }
